@@ -304,7 +304,7 @@ class TwoSms
             return false;
         }
     }
-    public function getContactEvents($contactId, $timeout = 0self::TIMEOUT)
+    public function getContactEvents($contactId, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
