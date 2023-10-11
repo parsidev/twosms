@@ -1,6 +1,5 @@
 <?php
 namespace Parsidev\TwoSms;
-ini_set('default_socket_timeout', 5000);
 class TwoSms
 {
     const SEND = "http://api.twosms.ir/post/Send.asmx?wsdl";
@@ -10,6 +9,7 @@ class TwoSms
     const USER = "http://api.twosms.ir/post/users.asmx?wsdl";
     const SCHEDULE = "http://api.twosms.ir/post/Schedule.asmx?wsdl";
     const REGIONAL = "http://api.twosms.ir/post/Actions.asmx?wsdl";
+    const TIMEOUT = 30000;
 
     protected $client;
     protected $username;
@@ -109,7 +109,7 @@ class TwoSms
     }
     //Connect End
     //Send Start
-    public function getStatuses($uniqueId, $timeout = 0)
+    public function getStatuses($uniqueId, $timeout = self::TIMEOUT)
     {
         $this->connectForSend($timeout);
         if (!is_array($uniqueId))
@@ -124,7 +124,7 @@ class TwoSms
             return false;
         }
     }
-    public function getStatus($uniqueId, $timeout = 0)
+    public function getStatus($uniqueId, $timeout = self::TIMEOUT)
     {
         $this->connectForSend($timeout);
         $parameters['username'] = $this->username;
@@ -137,7 +137,7 @@ class TwoSms
             return false;
         }
     }
-    public function sendSMS($to, $message, $from = null, $type = 'normal', $timeout = 0)
+    public function sendSMS($to, $message, $from = null, $type = 'normal', $timeout = self::TIMEOUT)
     {
         $this->connectForSend($timeout);
         if (!is_array($to))
@@ -158,7 +158,7 @@ class TwoSms
             return false;
         }
     }
-    public function getCredit($timeout = 0)
+    public function getCredit($timeout = self::TIMEOUT)
     {
         $this->connectForSend($timeout);
         $parameters['username'] = $this->username;
@@ -172,7 +172,7 @@ class TwoSms
     }
     //Send End
     //Contact Start
-    public function addGroup($groupName, $description, $showToChilds, $timeout = 0)
+    public function addGroup($groupName, $description, $showToChilds, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -189,7 +189,7 @@ class TwoSms
     }
     public function addContact($groupId, $firstName, $lastName, $nickName, $corporation, $cellPhone, $phone, $fax,
                                $birthDate, $email, $gender, $province, $city, $address, $postalCode, $additionDate,
-                               $additionText, $descriptions, $timeout = 0)
+                               $additionText, $descriptions, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -219,7 +219,7 @@ class TwoSms
             return false;
         }
     }
-    public function checkMobileExistInContact($mobileNumber, $timeout = 0)
+    public function checkMobileExistInContact($mobileNumber, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -232,7 +232,7 @@ class TwoSms
             return false;
         }
     }
-    public function getContacts($groupId, $keyword, $from, $count, $timeout = 0)
+    public function getContacts($groupId, $keyword, $from, $count, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -248,7 +248,7 @@ class TwoSms
             return false;
         }
     }
-    public function getGroups($timeout = 0)
+    public function getGroups($timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -262,7 +262,7 @@ class TwoSms
     }
     public function changeContact($contactId, $mobileNumber, $firstName, $lastName, $nickName, $corporation, $phone,
                                   $fax, $email, $gender, $province, $city, $address, $postalCode, $additionText,
-                                  $descriptions, $contactState, $timeout = 0)
+                                  $descriptions, $contactState, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -291,7 +291,7 @@ class TwoSms
             return false;
         }
     }
-    public function removeContact($mobileNumber, $timeout = 0)
+    public function removeContact($mobileNumber, $timeout = self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -304,7 +304,7 @@ class TwoSms
             return false;
         }
     }
-    public function getContactEvents($contactId, $timeout = 0)
+    public function getContactEvents($contactId, $timeout = 0self::TIMEOUT)
     {
         $this->connectForContact($timeout);
         $parameters['username'] = $this->username;
@@ -319,7 +319,7 @@ class TwoSms
     }
     //Contact End
     //Receive Start
-    public function getInboxCount($isRead, $timeout = 0)
+    public function getInboxCount($isRead, $timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
@@ -332,7 +332,7 @@ class TwoSms
             return false;
         }
     }
-    public function getOutBoxCount($timeout = 0)
+    public function getOutBoxCount($timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
@@ -344,7 +344,7 @@ class TwoSms
             return false;
         }
     }
-    public function getMessages($location, $from, $index, $count, $timeout = 0)
+    public function getMessages($location, $from, $index, $count, $timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
@@ -360,7 +360,7 @@ class TwoSms
             return false;
         }
     }
-    public function getMessagesStr($location, $from, $index, $count, $timeout = 0)
+    public function getMessagesStr($location, $from, $index, $count, $timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
@@ -376,7 +376,7 @@ class TwoSms
             return false;
         }
     }
-    public function getMessageByDate($location, $from, $index, $count, $dateFrom, $dateTo, $timeout = 0)
+    public function getMessageByDate($location, $from, $index, $count, $dateFrom, $dateTo, $timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
@@ -394,7 +394,7 @@ class TwoSms
             return false;
         }
     }
-    public function removeMessage($messageId, $timeout = 0)
+    public function removeMessage($messageId, $timeout = self::TIMEOUT)
     {
         $this->connectForReceive($timeout);
         $parameters['username'] = $this->username;
