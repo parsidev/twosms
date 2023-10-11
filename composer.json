@@ -1,6 +1,6 @@
 {
-    "name": "parsidev/melipayamak",
-    "description": "package for send sms with laravel5.4 (published for melipayamak.com)",
+    "name": "parsidev/twosms",
+    "description": "package for send sms with laravel",
     "license": "MIT",
     "authors": [
         {
@@ -14,18 +14,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Parsidev\\MeliPayamak": "src/"
+            "Parsidev\\TwoSms": "src/"
         }
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Parsidev\\MeliPayamak\\MeliPayamakServiceProvider"
-            ],
-            "aliases": {
-                "MeliPayamak": "Parsidev\\MeliPayamak\\Facades"
-            }
-        }
-    },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
