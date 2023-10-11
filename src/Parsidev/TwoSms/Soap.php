@@ -1,6 +1,6 @@
 <?php
 
-namespace Parsidev\MeliPayamak;
+namespace Parsidev\T;
 
 use Exception;
 use SoapClient;
