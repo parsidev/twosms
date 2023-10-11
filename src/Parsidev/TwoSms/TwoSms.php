@@ -1,15 +1,15 @@
 <?php
-namespace Parsidev\MeliPayamak;
+namespace Parsidev\TwoSms;
 ini_set('default_socket_timeout', 5000);
-class MeliPayamak
+class TwoSms
 {
-    const SEND = "http://api.payamak-panel.com/post/Send.asmx?wsdl";
-    const CONTACT = "http://api.payamak-panel.com/post/contacts.asmx?wsdl";
-    const RECEIVE = "http://api.payamak-panel.com/post/receive.asmx?wsdl";
-    const TICKET = "http://api.payamak-panel.com/post/Tickets.asmx?wsdl";
-    const USER = "http://api.payamak-panel.com/post/users.asmx?wsdl";
-    const SCHEDULE = "http://api.payamak-panel.com/post/Schedule.asmx?wsdl";
-    const REGIONAL = "http://api.payamak-panel.com/post/Actions.asmx?wsdl";
+    const SEND = "http://api.twosms.ir/post/Send.asmx?wsdl";
+    const CONTACT = "http://api.twosms.ir/post/contacts.asmx?wsdl";
+    const RECEIVE = "http://api.twosms.ir/post/receive.asmx?wsdl";
+    const TICKET = "http://api.twosms.ir/post/Tickets.asmx?wsdl";
+    const USER = "http://api.twosms.ir/post/users.asmx?wsdl";
+    const SCHEDULE = "http://api.twosms.ir/post/Schedule.asmx?wsdl";
+    const REGIONAL = "http://api.twosms.ir/post/Actions.asmx?wsdl";
 
     protected $client;
     protected $username;
