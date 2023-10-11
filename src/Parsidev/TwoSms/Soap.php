@@ -1,6 +1,6 @@
 <?php
 
-namespace Parsidev\T;
+namespace Parsidev\TwoSms;
 
 use Exception;
 use SoapClient;
