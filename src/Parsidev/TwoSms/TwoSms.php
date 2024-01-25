@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Parsidev\TwoSms\Enums\Method;
 
-class TwoSMS
+class TwoSms
 {
     const BASE_URL = "https://rest.payamak-panel.com/api/SendSMS/";
 
